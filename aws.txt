@@ -1,0 +1,65 @@
+CloudFront:Setup Infra as per xml or yaml, spins ec2,db,s3,ML, multiple acc and region
+Well Arch framework(pillars)
+	- Operational Excellence:Running and monitoring systems, responding to events, define standards
+	- Security:protecting information and system.
+	- Reliability:workloads and quick recovery from failures. adapting to change req.
+	- Performance Efficency:structured and streamlined allocation of resources. monitoring
+	- Cost optimization:avoiding unnecessary cost, scaling without overspending.
+	- Sustainibility:minimum env impact on cloud workload, shared responsibility, reduce downstream impact.				
+Create own encryption key in aws service - use 	
+Rout 53
+	- Simple:for single resource
+	- Failover routing policy – Use when you want to configure active-passive failover. You can use failover routing to create records in a private hosted zone.
+	- Geolocation routing policy – Use when you want to route traffic based on the location of your users. You can use geolocation routing to create records in a private hosted zone.
+	- Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another location.
+	- Latency routing policy – Use when you have resources in multiple AWS Regions and you want to route traffic to the Region that provides the best latency. You can use latency routing to create records in a private hosted zone.
+	- IP-sed routing policy – Use when you want to route traffic based on the location of your users, and have the IP addresses that the traffic originates from.
+	- Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random. You can use multivalue answer routing to create records in a private hosted zone.
+	- Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
+Sensitive data discovery and protection : AWS Macie, une ML to identify and protect sensitive data
+Amazon Inspector:automated service that improves security and compliance on ec2
+Amazon GuardDuty: Threat detection service. Account level access and not for instance and os
+Amazon Shield: DDos protection service, on all resource and not instance and os level. (route 53 and global accelerator)
+
+EFS encryption enabled by default:
+Alerts user if utilization increases the threshold: AWS Budget
+Instance store: Provides instance block level storage
+EFS:File system, can be accessed by multiple ec2
+Ec2 Dedicated host: Allows you to use other software liscences also compliances.
+aws Transcribe:Speech to text | aws Polly : text to speech
+Weighted routing in Route53 : works as load balancer
+
+DynamoDB with global tables: Scales across regions too
+AWS product team auto apply patch and change to OS
+APN Consulting partner provides expert advice in migration
+Aws Artifact:provides HIPAA and governence report docs
+AWS Region has 1 or mnore discrete datacenters and 3 or more AZ
+
+AWS Support plan: Business(guide for specific usecase) and Enterprise support provides guidence, config and troubleshooting with other tools
+AWS Cloudtrail: Log, monitor and retain account activity
+Amazon Global Accelerator:
+
+Amazon Redshift: Handels large petabyte scale data warehousing from different sources like s3
+AWS Glue: Extract, manage and load data for process
+AWS Storage Gateway: Hybrid storagethat connects on-premice with aws cloud
+AWS Services that support reservation to optimize cost: RDS DynamoDB EC2
+AWS Service that support only basic level: AWS Delveloper and AWS Basec support
+
+AWS Xray: to debug and analyze performance of serverless application 
+AWS Trust Advisor: provides realtime guidence to help provison resources on optimization,fault tollerence, security
+AWS Pinpoint: Captures customers data in real time to deliver insights
+AWS CloudFormation: can help provision services just by text file or programably-kinda automation
+
+AWS Pricing calculator:create an estimate ofr your use scenario:
+AWS Budget:sets custom budget alerts
+
+AWS web application firewall: helps to configure rule that allow block or monitor based on condition we define
+
+AWS Athena:helps you analyze unstructured, semi-structured, and structured data stored in Amazon S3
+AWS Aurora:provides built-in security, continuous backups, serverless compute, up to 15 read replicas, automated multi-Region replication, and integrations
+AWS Redshift: access and analyze data without all of the configurations of a provisioned data warehouse
+
+Amazon MQ : message broker
+Amazon EMR:Elastic Map Reduce: managed cluster plateform to run bid data framework
+AWS Storage
+AWS VPC and subnet:Even though a VPC spans across the entire region, every subnet can only be associated with only one Availability Zone. 
