@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
 
 class RandomOne:
     def isWin(self, selected, removed, d1, d2, d3):
@@ -70,6 +71,8 @@ random_one = RandomOne()
 win=0
 loose=0
 
+results = []
+
 switch=0
 switch=int(input('Do you want to run simulation door switch?(0/1) : '))
 itr=int(input('Run simulation for..? : '))
@@ -93,7 +96,20 @@ for i in range(itr):
             loose+=1
          else:
             win+=1
-    # print('running simulation..')
+    results.append("Win" if res else "Lose")
+
+# Count the occurrences of each result
+win_count = results.count("Win")
+lose_count = results.count("Lose")
+
+# Plot a pie chart
+labels = ['Wins', 'Losses']
+sizes = [win_count, lose_count]
+colors = ['green', 'red']
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+plt.axis('equal')  # Equal aspect ratio ensures the pie is circular.
+plt.title('Distribution of Wins and Losses')
+plt.show()
 
 if switch==0:  
     print('When there was no door switch done!')
