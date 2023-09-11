@@ -1,5 +1,9 @@
-Region>AZ>
-CloudFront:Setup Infra as per xml or yaml, spins ec2,db,s3,ML, multiple acc and region
+Region>VPC>AZ>Subnet
+AWS CloudFront:multiple acc and region, hlp files available from data center to edhe loc.
+Cloud Foundation:Guide to help deploy config,
+Global services:AIM,  CloudFront, Route53, Web app firewall
+Both User and AWS generated tags must be activated before they appear in Cost Explorer.
+
 
 Well Arch framework(pillars)
 	- Operational Excellence:Running and monitoring systems, responding to events, define standards
@@ -19,16 +23,39 @@ Rout 53
 	- Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random. You can use multivalue answer routing to create records in a private hosted zone.
 	- Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
 	
+Cloud Adoptation Framework
+	- Business
+	- People
+	- Governence
+	- Platform
+	- Security
+	- Operation
+	
+Gateway time for AWS storage Gateway service
+	- Tape, file, volume
+Subnet type:
+	- Public, Private , VPN only and Isolated
+	
 Sensitive data discovery and protection : AWS Macie, une ML to identify and protect sensitive data
 Amazon Inspector:automated service that improves security and compliance on ec2
-Amazon GuardDuty: Threat detection service. Account level access and not for instance and os
-Amazon Shield: DDos protection service, on all resource and not instance and os level. (route 53 and global accelerator)
+Amazon GuardDuty: Threat detection service. Account level access and not for instance and os, monitors malicious activity. monitors logs for threat, take actions
+Amazon Shield: DDoS protection service, on all resource and not instance and os level. (route 53 and global accelerator)
 AWS WEB Application firewall: 
+AWS Cloudtrail: Log, monitor and retain account activity, compliance audit, historical configuration available.
+AWS CloudWatch: Monitoring and observation service for devops and IT managers, creates alarm, 
+Amazon Inspector:Auto inspects services/apps for exposures and vulnemrabilities, integrate security to dev ops, streamline compliance and standards
+AWS Xray: to debug and analyze performance of serverless application 
+Amazon Kendra: intel. search service powered by ML, NLP, any unstructured doc it can search within
+Amazon Personalize: Ready to use ML model for recommendation, can build app around it.
+Amazon Comprehend: NLP service from 
+Amazon Lex:conversational interface | Transcribe: Audio to text
+
+
 
 EFS encryption enabled by default:
 Alerts user if utilization increases the threshold: AWS Budget
 Instance store: Provides instance block level storage
-EFS:File system, can be accessed by multiple ec2
+EFS:File system, can be accessed by multiple ec2, what if in different Region or AZ?
 Ec2 Dedicated host: Allows you to use other software liscences also compliances.
 aws Transcribe:Speech to text | aws Polly : text to speech
 Weighted routing in Route53 : works as load balancer
@@ -38,8 +65,22 @@ EC2 On-Demand:Full lifecycel control, no upfront payment only on used time.
 AWS Local Zones:Lets select sotarge/cpmpute in close to end user for low latency.
 AWS EdgeLoaction: Site used by CloudFrontto use cached copiesfor faster deliver
 AWS Wavelength:used for app that need ultra low latency alternative
+AWS Images: Region specific?
+AWS EFS:Scalable, elastic NFS file sys.scales on demand, parallel shared access to thousands of ec2 from diff AZ Region and VPC
+Amazon ElastiCache:Low latency in memory datastore.Gaming, Real time analytics
+AWS EC2 pricing
+	- RI:Max discount is 72%
+	- On-Demand: pay by compute cap byhour or second
+	- On-Spot:spare EC2 compute cap, upto 90% discount, can be intrrupted.
+	- Savings Plan: commitment to consistent use, billed per hour for 1 OR 3 yr term
+	- Dedicated hosts:is dedicated machine
+AWS S3 TA(Transfer Acceleration)fast and secure transfer of files, takes advantage of cloud front.
+AWS CodeDeploy: automates code deployment on ec2 and on premice also
 
-DynamoDB with global tables: Scales across regions too
+
+Amazon DynamoDB with global tables: Scales across regions too, least operational overhead, key val and document, adaptable to business change, no fixed cols
+Amazon S3: Object storage
+Amazon Neptune: Fully managed DB service for graph application.
 AWS product team auto apply patch and change to OS
 APN Consulting partner provides expert advice in migration
 Aws Artifact:provides HIPAA and governence report docs
@@ -51,7 +92,7 @@ RDS depl:
 Amazon EMR: cloud bid data platform for processing huge data using open source tools
 AWS Step Functions:combination of multiple serverless services stiched together
 AWS Batch:Plan, schedule and execute batch processing. takes care of provision and job distribution based on volume. 
-
+Amazon Global Accelerator:global app availability and performance, provides static IP addres as as fixed point entry
 
 AWS Support plan: Business(guide for specific usecase) and Enterprise support provides guidence, config and troubleshooting with other tools
 	- Business support:prod workload and 24/7 tech and arch support 
@@ -59,29 +100,37 @@ AWS Support plan: Business(guide for specific usecase) and Enterprise support pr
 	- Enterprise on ramp:critical workload
 	- Developer support: for early dev, email & chat based support, no 24/7 support.
 	
-AWS Cloudtrail: Log, monitor and retain account activity
-AWS CloudWatch: Monitoring and observation service for deevs and IT managers, creates alarm, 
-Amazon Global Accelerator:
+
 AWS VPC:Can provision logically isolated section of cloud.
 Internet Gateway: VPC component let you connect VPC
-Amazon Inspector:Auto inspects services/apps for exposures and vulnemrabilities, integrate security to dev ops, streamline compliance and standards
+AWS Transit Gateway:Connects VPC and on premice network through a central hub. act as cloud router.
+VPC Endpoint: privately connect to vpc to aws service, without internet gateway, NAT, VPN, or AWS DC
+AWS Direct Connect : dedicated network from on premice to aws, vpc, takes time tosetup.
+AWS TransitGateway:connects VPC and on premice with central hub, acts as cloud router
+Amazon API Gateway: Acts like fron door for app
+
 AWS Secret Manager:Like Cyberark. manages DB cred and API keys
 AWS CLoud HSM:Hardware security module:Security assesment, automates generate and use encryption keys
+AWS KMS:(Key Management Service) create and manage cryptographic keys.
+AWS Service Health dashboard:Availability and operations of services, for status
+AWS Account HElath Dashboard: Allert and guidance about events that can effect.
 
-Amazon Redshift: Handels large petabyte scale data warehousing from different sources like s3
+Amazon Redshift: Handels large petabyte scale data warehousing from different sources like s3, access and analyze data without all of the configurations of a provisioned data warehouse
 AWS Glue: Extract, manage and load data for process
 AWS Storage Gateway: Hybrid storagethat connects on-premice with aws cloud
 AWS Services that support reservation to optimize cost: RDS DynamoDB EC2
 AWS Service that support only basic level: AWS Delveloper and AWS Basec support
 AWS Syetem Manager Session Manager:Interactive browser based shell and CLI experience.manage ssh keys
-AWS INstance COnnect:Secure way to connect linux instance using sshport 22 has to be unused 
+AWS Instance COnnect:Secure way to connect linux instance using sshport 22 has to be unused 
+AWS Trusted Advisor: provides realtime guidence to help provison resources on cost optimization,fault tollerence, security
 
-AWS Xray: to debug and analyze performance of serverless application 
-AWS Trusted Advisor: provides realtime guidence to help provison resources on optimization,fault tollerence, security
+
 AWS Pinpoint: Captures customers data in real time to deliver insights
 AWS CloudFormation: can help provision services just by text file or programably-kinda automation
 AWS Opswork:Configuration managementservice taht provides instance of Chef and Puppet(automation platform)
 Amazon Kinesis Data Stream: Enables to build custom app which works on streaming data
+Horizontal scale:aaddding more comp to system
+Veriticle scale:adding cores, mem, storage to same system
 
 AWS Pricing calculator:create an estimate ofr your use scenario:
 AWS Budget:sets custom budget alerts, monthly quaterly or yearly level
@@ -91,12 +140,11 @@ AWS Organization: Centralize billing, access, compliance, single payment option.
 AWS web application firewall: helps to configure rule that allow block or monitor based on condition we define
 AWS Athena:helps you analyze unstructured, semi-structured, and structured data stored in Amazon S3, SQL based
 AWS Aurora:provides built-in security, continuous backups, serverless compute, up to 15 read replicas, automated multi-Region replication, and integrations
-AWS Redshift: access and analyze data without all of the configurations of a provisioned data warehouse
+Amazon Dynamo
 
 Amazon MQ : message broker
 Amazon EMR:Elastic Map Reduce: managed cluster plateform to run bid data framework
 AWS Storage
 AWS Lusture File System:Optimized for fast computation, ML AI Media processing. Linux
-
 
 AWS VPC and subnet:Even though a VPC spans across the entire region, every subnet can only be associated with only one Availability Zone. 
